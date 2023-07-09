@@ -4,30 +4,31 @@ const App = () => {
   const categories = [
     {
       "id": 1,
-      "title": "Box 1",
-      // "imageUrl": "https://i.ibb.co/cvpntL1/hats.png5"
+      "title": "hats",
+      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
     },
     {
       "id": 2,
-      "title": "Box 2",
-      // "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png5"
+      "title": "jackets",
+      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
     },
     {
       "id": 3,
-      "title": "Box 3",
-      // "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png5"
+      "title": "sneakers",
+      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
     },
     {
       "id": 4,
-      "title": "Box 4",
-      // "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png5"
+      "title": "womens",
+      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
     },
     {
       "id": 5,
-      "title": "Box 5",
-      // "imageUrl": "https://i.ibb.co/R70vBrQ/men.png5"
+      "title": "mens",
+      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
     }
   ]
+
 
   return (
     <Directory categories={categories} />
