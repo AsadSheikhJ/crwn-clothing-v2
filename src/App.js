@@ -6,7 +6,7 @@ import Home from "./routes/home/home.component";
 
 const Shop = () => {
   return (
-    <h1>I am the shop page</h1>
+    <h1>Data fetching page</h1>
   )
 }
 
