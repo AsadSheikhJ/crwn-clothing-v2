@@ -1,32 +1,28 @@
-import { initializeApp } from 'firebase/app'
-import {
-    getAuth,
-    signInWithRedirect,
-    signInWithPopup, getRedirectResult,
-    GoogleAuthProvider,
-} from 'firebase/auth'
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDOsXOtdmt_77ohsyI1M-SmJJW6V3hQcFY",
-    authDomain: "crwn-clothing-db-aac4c.firebaseapp.com",
-    projectId: "crwn-clothing-db-aac4c",
-    storageBucket: "crwn-clothing-db-aac4c.appspot.com",
-    messagingSenderId: "354167172721",
-    appId: "1:354167172721:web:dc47eae1f33677c8c5f5d0"
+    apiKey: "AIzaSyBfS-XjPzOi0OMpwm-Qc4A6xblmWPA5qe8",
+    authDomain: "crwn-clothing-web-643f0.firebaseapp.com",
+    projectId: "crwn-clothing-web-643f0",
+    storageBucket: "crwn-clothing-web-643f0.appspot.com",
+    messagingSenderId: "563239520383",
+    appId: "1:563239520383:web:e53b0663f8f50971fe174a"
 };
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
+export const auth = getAuth(firebaseApp);
 
+const provider = new GoogleAuthProvider();
 
-const auth = getAuth(firebaseApp);
-const googleAuthProvider = new GoogleAuthProvider();
-googleAuthProvider.setCustomParameters({
-    prompt: "select_account"
-});
-
-export const signInWithGooglePopup = () => signInWithPopup(auth, googleAuthProvider)
+export const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
