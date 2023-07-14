@@ -22,16 +22,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(firebaseApp);
-export default firebaseApp;
 
+const auth = getAuth(firebaseApp);
+const googleAuthProvider = new GoogleAuthProvider();
+googleAuthProvider.setCustomParameters({
+    prompt: "select_account"
+});
 
-
-// const auth = getAuth();
-// const googleAuthProvider = new GoogleAuthProvider();
-// googleAuthProvider.setCustomParameters({
-//     prompt: "select_account"
-// });
-
-// export const signInWithGooglePopup = () => signInWithPopup(auth, googleAuthProvider)
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleAuthProvider)
