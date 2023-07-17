@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth"
+// import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult } from "firebase/auth"
+
+import { getAuth, getRedirectResult, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,7 +18,38 @@ const firebaseConfig = {
 
 
 const firebaseApp = initializeApp(firebaseConfig);
-export const auth = getAuth(firebaseApp);
+
+const provider = new GoogleAuthProvider();
+
+const auth = getAuth();
+export const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            console.log(result);
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            // const credential = GoogleAuthProvider.credentialFromResult(result);
+            // const token = credential.accessToken;
+            // // The signed-in user info.
+            // const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+        }).catch((error) => {
+            console.log(error);
+            // Handle Errors here.
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
+            // // The email of the user's account used.
+            // const email = error.customData.email;
+            // // The AuthCredential type that was used.
+            // const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+
+}
+// export const auth = getAuth(firebaseApp);
+
+// import { getAuth, signInWithRedirect } from "firebase/auth";
+
 // Before
 // ==============
 // signInWithRedirect(auth, new GoogleAuthProvider());
@@ -29,14 +64,14 @@ export const auth = getAuth(firebaseApp);
 // const firebaseApp = initializeApp(firebaseConfig);
 // export const auth = getAuth(firebaseApp);
 
-const provider = new GoogleAuthProvider();
+// const provider = new GoogleAuthProvider();
 
-export const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            console.log(result);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}
+// export const signInWithGoogle = () => {
+//     signInWithPopup(auth, provider)
+//         .then((result) => {
+//             console.log(result);
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         });
+// }
