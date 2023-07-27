@@ -3,16 +3,16 @@ const SignUpForm = () => {
     <div>
       <h1>Sign Up with your email and password</h1>
       <form onSubmit={() => {}}>
-        <lable>Display Name</lable>
+        <label>Display Name</label>
         <input type='text' required />
 
-        <lable>Email</lable>
+        <label>Email</label>
         <input type='email' required />
 
-        <lable>Password</lable>
+        <label>Password</label>
         <input type='password' required />
 
-        <lable>Confirm Password</lable>
+        <label>Confirm Password</label>
         <input type='password' required />
         <button type='submit'>Sign Up</button>
       </form>
