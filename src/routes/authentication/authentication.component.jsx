@@ -17,11 +17,6 @@ const Authentication = () => {
     console.log(response);
   }, []);
 
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
-
   return (
     <div>
       <p>Sign In Page</p>
