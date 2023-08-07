@@ -40,14 +40,31 @@ const SignInForm = () => {
         email,
         password
       );
+      console.log(response);
       resetFormFields();
     } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
-        alert('Cannot create user, email already in use')
+      switch (error.code) {
+        case 'auth/wrong-password':
+          alert('Inccorect password for email');
+          break;
+        case 'auth/user-not-found':
+          alert('No User associated with this email');
+          break;
+        default:
+          console.log(error);
       }
-      else {
-        console.log('user creation error encountered', error)
-      }
+      // if (error.code === 'auth/wrong-password') {
+      //   alert('Incorrect password for email')
+      // }
+      // if (error.code === 'auth/wrong-password') {
+      //   alert('Incorrect password for email')
+      // }
+      // if (error.code === 'auth/email-already-in-use') {
+      //   alert('Cannot create user, email already in use')
+      // }
+      // else {
+      //   console.log('user creation error encountered', error)
+      // }
     }
 
 
@@ -85,7 +102,7 @@ const SignInForm = () => {
 
         <div className="buttons-container">
           <Button type='submit'>Sign In</Button>
-          <Button buttonType='google' onClick={signInWithGoogle}>Google Sign in</Button>
+          <Button type='button' buttonType='google' onClick={signInWithGoogle}>Google Sign in</Button>
         </div>
       </form>
     </div>
