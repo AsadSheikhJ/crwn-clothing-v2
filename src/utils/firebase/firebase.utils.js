@@ -15,7 +15,6 @@ import {
     getDoc,
     setDoc
 } from 'firebase/firestore'
-import { async } from "q";
 
 
 // Your web app's Firebase configuration
