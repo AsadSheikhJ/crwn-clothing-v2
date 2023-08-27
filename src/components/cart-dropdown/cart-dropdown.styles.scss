@@ -17,10 +17,10 @@
     }
   
     .cart-items {
-      height: auto;
+      height: 240px;
       display: flex;
       flex-direction: column;
-      overflow: scroll;
+      overflow: auto;
     }
   
     button {
